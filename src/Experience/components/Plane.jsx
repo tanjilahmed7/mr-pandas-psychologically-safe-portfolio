@@ -24,7 +24,7 @@ import {
 
 extend(THREE);
 
-export default function Sphere() {
+export default function Plane() {
   const { nodes: backgroundNodes } = useMemo(() => {
     const gradientNode = Fn(() => {
       const color1 = vec3(0.01, 0.0, 0.0);
@@ -33,20 +33,20 @@ export default function Sphere() {
       return mix(color1, color2, t);
     });
 
-    const sphereColorNode = gradientNode();
+    const planeColorNode = gradientNode();
 
     return {
       nodes: {
-        sphereColorNode,
+        planeColorNode,
       },
     };
   }, []);
 
   return (
     <mesh>
-      <sphereGeometry args={[1, 16, 16]} />
+      <planeGeometry args={[1, 1]} />
       <meshBasicNodeMaterial
-        colorNode={backgroundNodes.sphereColorNode}
+        colorNode={backgroundNodes.planeColorNode}
         side={THREE.BackSide}
       />
     </mesh>
