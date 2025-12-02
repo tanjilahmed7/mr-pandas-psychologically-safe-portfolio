@@ -10,7 +10,7 @@ const Scene = () => {
     <>
       <Suspense fallback={null}>
         <Plane />
-        {/* <PostProcessingPass /> */}
+        <PostProcessingPass />
       </Suspense>
     </>
   );

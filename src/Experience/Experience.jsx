@@ -53,7 +53,7 @@ const Experience = () => {
       }}
       style={{ width: "100vw", height: "100vh" }}
     >
-      {/* <color attach="background" args={["#000000"]} /> */}
+      {/* <color attach="background" args={["#c74848"]} /> */}
       <Scene />
       <CameraController />
     </Canvas>
