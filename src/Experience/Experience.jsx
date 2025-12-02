@@ -24,10 +24,9 @@ const CameraController = () => {
         ref={camera}
         makeDefault
         fov={39.6}
-        position={[0, 20, 0]}
+        position={[0, 0, -10]}
       />
       {enableOrbitControls && <OrbitControls target={[0, 0, 0]} />}
-      <Scene camera={camera} />
     </>
   );
 };
@@ -54,7 +53,8 @@ const Experience = () => {
       }}
       style={{ width: "100vw", height: "100vh" }}
     >
-      <color attach="background" args={["#a5a5a5"]} />
+      {/* <color attach="background" args={["#000000"]} /> */}
+      <Scene />
       <CameraController />
     </Canvas>
   );

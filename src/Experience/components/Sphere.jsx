@@ -21,7 +21,6 @@ import {
   add,
   uniform,
 } from "three/tsl";
-import { cnoise } from "../shaders/utils/perlin";
 
 extend(THREE);
 

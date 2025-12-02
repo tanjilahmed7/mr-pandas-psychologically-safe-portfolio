@@ -1,4 +1,4 @@
-# Mr. Panda's Psyhologically Safe Portfolio
+# Mr. Panda's Psychologically Safe Portfolio
 
 **[Live site]()**
 
