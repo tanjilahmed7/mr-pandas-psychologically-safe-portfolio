@@ -5,6 +5,10 @@ import { useControls } from "leva";
 import { PostProcessingPass } from "./components/PostProcessingPass";
 import Panda from "./models/Panda";
 import MovingObjects from "./models/Moving_Objects";
+import SceneOne from "./models/SceneOne";
+import SceneTwo from "./models/SceneTwo";
+import SceneThree from "./models/SceneThree";
+import SceneFour from "./models/SceneFour";
 import { SoftShadows } from "@react-three/drei";
 
 const Scene = () => {
@@ -15,9 +19,10 @@ const Scene = () => {
 
       <Suspense fallback={null}>
         <MovingObjects />
-        {/* <Plane /> */}
-        {/* <Panda /> */}
-        {/* <Test /> */}
+        <SceneOne />
+        <SceneTwo />
+        <SceneThree />
+        <SceneFour />
         {/* <PostProcessingPass /> */}
       </Suspense>
     </>

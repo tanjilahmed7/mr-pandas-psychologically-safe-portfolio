@@ -23,8 +23,8 @@ const CameraController = () => {
       <PerspectiveCamera
         ref={camera}
         makeDefault
-        fov={70}
-        position={[0, 0, -30]}
+        fov={35}
+        position={[0, 0, 30]}
       />
       {enableOrbitControls && <OrbitControls target={[0, 0, 0]} />}
     </>
@@ -47,6 +47,7 @@ const Experience = () => {
   return (
     <Canvas
       shadows
+      flat={true}
       gl={(props) => {
         extend(THREE);
         const renderer = new THREE.WebGPURenderer(props);
@@ -54,7 +55,6 @@ const Experience = () => {
       }}
       style={{ width: "100vw", height: "100vh" }}
     >
-      {/* <color attach="background" args={["#c74848"]} /> */}
       <Scene />
       <CameraController />
     </Canvas>
