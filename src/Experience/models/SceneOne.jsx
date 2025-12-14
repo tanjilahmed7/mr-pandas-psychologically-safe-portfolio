@@ -1,7 +1,8 @@
-import React, { useRef } from "react";
+import React, { useRef, useMemo } from "react";
 import { useGLTF, useKTX2 } from "@react-three/drei";
 import { useKTX2Texture } from "../utils/ktxLoader";
 import { useFrame } from "@react-three/fiber";
+import * as THREE from "three";
 
 export default function Model(props) {
   const { nodes, materials } = useGLTF("/models/scene_1.glb");
@@ -11,6 +12,8 @@ export default function Model(props) {
   const dragonLegBackLeft = useRef();
   const dragonLegFrontRight = useRef();
   const dragonLegBackRight = useRef();
+  const waterfall = useRef();
+  const waterfallFoam = useRef();
 
   const waterfallone = useKTX2Texture("/textures/waterfall_one.ktx2");
   const waterfalltwo = useKTX2Texture("/textures/waterfall_two.ktx2");
@@ -19,16 +22,26 @@ export default function Model(props) {
   const scene_1 = useKTX2Texture("/textures/scene_1.ktx2");
 
   useFrame((state) => {
-    dragonHead.current.rotation.y =
-      0.2 * Math.sin(state.clock.elapsedTime * 0.8);
-    dragonLegFrontLeft.current.rotation.y =
-      0.3 * Math.sin(state.clock.elapsedTime + Math.PI);
-    dragonLegBackLeft.current.rotation.y =
-      0.3 * Math.sin(state.clock.elapsedTime * 0.9 + Math.PI);
-    dragonLegFrontRight.current.rotation.y =
-      0.2 * Math.sin(state.clock.elapsedTime);
-    dragonLegBackRight.current.rotation.y =
-      0.2 * Math.sin(state.clock.elapsedTime + Math.PI);
+    const t = state.clock.elapsedTime;
+
+    // Dragon
+    dragonHead.current.rotation.y = 0.2 * Math.sin(t * 0.8);
+    dragonLegFrontLeft.current.rotation.y = 0.3 * Math.sin(t + Math.PI);
+    dragonLegBackLeft.current.rotation.y = 0.3 * Math.sin(t * 0.9 + Math.PI);
+    dragonLegFrontRight.current.rotation.y = 0.2 * Math.sin(t);
+    dragonLegBackRight.current.rotation.y = 0.2 * Math.sin(t + Math.PI);
+
+    // Waterfall
+    const useAlt = Math.sin(t * 4) > 0;
+    const mat = useAlt ? waterfalltwo : waterfallone;
+
+    if (waterfall.current) {
+      waterfall.current.material = mat;
+    }
+
+    if (waterfallFoam.current) {
+      waterfallFoam.current.material = mat;
+    }
   });
 
   return (
@@ -98,12 +111,14 @@ export default function Model(props) {
         rotation={[Math.PI / 2, 0.025, 0]}
       />
       <mesh
+        ref={waterfall}
         geometry={nodes.Waterfall001.geometry}
         material={waterfallone}
         position={[-10.609, 1.507, -2.46]}
         rotation={[-Math.PI / 2, 0, -Math.PI]}
       />
       <mesh
+        ref={waterfallFoam}
         geometry={nodes.Waterfall_Foam001.geometry}
         material={waterfallone}
         position={[-10.711, 0.873, -2.351]}

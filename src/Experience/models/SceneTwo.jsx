@@ -5,49 +5,68 @@ import { useKTX2Texture } from "../utils/ktxLoader";
 
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
 
 export default function Model(props) {
   const { nodes, materials } = useGLTF("/models/scene_2.glb");
 
   const scene_2 = useKTX2Texture("/textures/scene_2.ktx2");
 
+  const oceanOne = useRef();
+  const oceanTwo = useRef();
+  const oceanThree = useRef();
+
+  useFrame((state) => {
+    const t = state.clock.elapsedTime;
+
+    // Oceans
+    oceanOne.current.position.y = 0.24 * Math.sin(t + Math.PI / 4) + 1;
+    oceanTwo.current.position.y = 0.2 * Math.sin(t) + 1.4;
+    oceanThree.current.position.y = 0.2 * Math.sin(t + Math.PI / 3) + 1.8;
+  });
+
   return (
     <group {...props} dispose={null}>
       <mesh
-        castShadow
-        receiveShadow
         geometry={nodes.Plane007.geometry}
         material={scene_2}
         position={[5.418, 5.164, -2.296]}
         rotation={[Math.PI / 2, -0.064, 0]}
       />
       <mesh
-        castShadow
-        receiveShadow
         geometry={nodes.Plane017.geometry}
         material={scene_2}
         position={[0.526, 4.236, -2.334]}
         rotation={[Math.PI / 2, 0.023, 0]}
       />
       <mesh
-        castShadow
-        receiveShadow
         geometry={nodes.Plane018.geometry}
         material={scene_2}
         position={[2.426, 3.171, -2.186]}
         rotation={[Math.PI / 2, 0.125, 0]}
       />
       <mesh
-        castShadow
-        receiveShadow
+        ref={oceanOne}
         geometry={nodes.Ocean_Water.geometry}
         material={scene_2}
         position={[-0.385, 1.089, -1.457]}
         rotation={[Math.PI / 2, 0.037, 0]}
       />
       <mesh
-        castShadow
-        receiveShadow
+        ref={oceanTwo}
+        geometry={nodes.Ocean_Water.geometry}
+        material={scene_2}
+        position={[2.8, 1.589, -1.457]}
+        rotation={[Math.PI / 2, 0.037, 0]}
+      />
+      <mesh
+        ref={oceanThree}
+        geometry={nodes.Ocean_Water.geometry}
+        material={scene_2}
+        position={[5.9, 2.089, -1.457]}
+        rotation={[Math.PI / 2, 0.037, 0]}
+      />
+      <mesh
         geometry={nodes.Dolphin.geometry}
         material={scene_2}
         position={[5.608, 2.146, -1.252]}
@@ -55,56 +74,42 @@ export default function Model(props) {
         scale={0.717}
       />
       <mesh
-        castShadow
-        receiveShadow
         geometry={nodes.Plane026.geometry}
         material={scene_2}
         position={[3.313, 2.244, -2.137]}
         rotation={[Math.PI / 2, -0.124, 0]}
       />
       <mesh
-        castShadow
-        receiveShadow
         geometry={nodes.Treasure_Chest_Top.geometry}
         material={scene_2}
         position={[3.33, 2.519, -2.126]}
         rotation={[Math.PI / 2, -0.124, 0]}
       />
       <mesh
-        castShadow
-        receiveShadow
         geometry={nodes.Lock.geometry}
         material={scene_2}
         position={[3.193, 2.28, -2.122]}
         rotation={[Math.PI / 2, -0.124, 0]}
       />
       <mesh
-        castShadow
-        receiveShadow
         geometry={nodes.Plane045.geometry}
         material={scene_2}
         position={[-0.387, 1.016, -0.262]}
         rotation={[0, 0, 0.144]}
       />
       <mesh
-        castShadow
-        receiveShadow
         geometry={nodes.Plane049.geometry}
         material={scene_2}
         position={[-20.599, 4.634, -2.755]}
         rotation={[Math.PI / 2, 0, 0]}
       />
       <mesh
-        castShadow
-        receiveShadow
         geometry={nodes.Plane058.geometry}
         material={scene_2}
         position={[-20.599, 4.634, -2.755]}
         rotation={[Math.PI / 2, 0, 0]}
       />
       <mesh
-        castShadow
-        receiveShadow
         geometry={nodes.Ship_Stick.geometry}
         material={scene_2}
         position={[-2.512, 0.41, -1.48]}
@@ -112,8 +117,6 @@ export default function Model(props) {
         scale={[1.523, 1, 1.523]}
       />
       <mesh
-        castShadow
-        receiveShadow
         geometry={nodes.Water_stick.geometry}
         material={scene_2}
         position={[-0.363, 0.41, -1.48]}

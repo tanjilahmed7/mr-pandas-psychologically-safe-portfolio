@@ -8,6 +8,7 @@ import SceneOne from "./models/SceneOne";
 import SceneTwo from "./models/SceneTwo";
 import SceneThree from "./models/SceneThree";
 import SceneFour from "./models/SceneFour";
+import SingleSheet from "./models/SingleSheet";
 import { SoftShadows } from "@react-three/drei";
 
 const Scene = () => {
@@ -23,6 +24,7 @@ const Scene = () => {
         <SceneThree />
         <SceneFour />
         {/* <PostProcessingPass /> */}
+        <SingleSheet />
       </Suspense>
     </>
   );
