@@ -11,8 +11,6 @@ export default function Model(props) {
 
   const singlesheet = useKTX2Texture("/textures/single_sheet.ktx2");
 
-  console.log("frick");
-
   return (
     <group {...props} dispose={null}>
       <mesh
