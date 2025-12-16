@@ -48,14 +48,13 @@ export default function Model(props) {
         rotation={[Math.PI / 2, 0.023, 0]}
       />
       <mesh
-        ref={pandaCorp}
-        geometry={nodes.Plane113.geometry}
+        geometry={nodes.Human_Resarcher.geometry}
         material={scene_3}
         position={[8.363, 3.436, -2.754]}
         rotation={[Math.PI / 2, 0.073, 0]}
       />
       <mesh
-        geometry={nodes.Plane114.geometry}
+        geometry={nodes.Senior_Human_Researcher.geometry}
         material={scene_3}
         position={[10.062, 3.516, -2.754]}
         rotation={[Math.PI / 2, -0.127, 0]}
@@ -79,14 +78,7 @@ export default function Model(props) {
       <mesh
         geometry={nodes.Pyramid_Door.geometry}
         material={scene_3}
-        position={[12.525, 3.03, 0.011]}
-      />
-      <mesh
-        geometry={nodes.Camel_Stick.geometry}
-        material={scene_3}
-        position={[8.138, 1.997, -1.48]}
-        rotation={[Math.PI, 0, Math.PI]}
-        scale={[1.523, 1, 1.523]}
+        position={[12.525, 3.395, -0.222]}
       />
     </group>
   );

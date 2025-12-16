@@ -109,20 +109,6 @@ export default function Model(props) {
         position={[-20.599, 4.634, -2.755]}
         rotation={[Math.PI / 2, 0, 0]}
       />
-      <mesh
-        geometry={nodes.Ship_Stick.geometry}
-        material={scene_2}
-        position={[-2.512, 0.41, -1.48]}
-        rotation={[Math.PI, 0, Math.PI]}
-        scale={[1.523, 1, 1.523]}
-      />
-      <mesh
-        geometry={nodes.Water_stick.geometry}
-        material={scene_2}
-        position={[-0.363, 0.41, -1.48]}
-        rotation={[Math.PI, 0, Math.PI]}
-        scale={[1.523, 1, 1.523]}
-      />
     </group>
   );
 }

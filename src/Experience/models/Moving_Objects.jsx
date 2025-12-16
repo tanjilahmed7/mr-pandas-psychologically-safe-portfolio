@@ -10,32 +10,6 @@ export default function Model(props) {
   return (
     <group {...props} dispose={null}>
       <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.Mr_Panda.geometry}
-        material={material}
-        position={[-21.563, 1.36, -1.4]}
-        rotation={[-Math.PI / 2, 0, -Math.PI]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.Ship.geometry}
-        material={material}
-        position={[-2.448, 1.489, -1.378]}
-        rotation={[Math.PI / 2, 0.064, 0]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.Bone_Body.geometry}
-        material={material}
-        position={[15.084, 2.631, -1.365]}
-        rotation={[Math.PI / 2, -0.064, 0]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
         geometry={nodes.Camel_Body.geometry}
         material={material}
         position={[8.226, 2.754, -1.394]}
@@ -43,117 +17,103 @@ export default function Model(props) {
         scale={0.849}
       />
       <mesh
-        castShadow
-        receiveShadow
         geometry={nodes.front_right_camel.geometry}
         material={material}
-        position={[8.503, 2.401, -1.392]}
+        position={[8.434, 2.572, -1.392]}
         rotation={[Math.PI / 2, -0.054, 0]}
       />
       <mesh
-        castShadow
-        receiveShadow
         geometry={nodes.back_right_camel.geometry}
         material={material}
-        position={[7.982, 2.511, -1.392]}
+        position={[7.97, 2.547, -1.392]}
         rotation={[Math.PI / 2, -0.054, 0]}
       />
       <mesh
-        castShadow
-        receiveShadow
         geometry={nodes.front_left_camel.geometry}
         material={material}
-        position={[8.481, 2.48, -1.426]}
+        position={[8.392, 2.703, -1.426]}
         rotation={[Math.PI / 2, -0.054, 0]}
       />
       <mesh
-        castShadow
-        receiveShadow
         geometry={nodes.back_left_camel.geometry}
         material={material}
-        position={[7.98, 2.531, -1.426]}
+        position={[7.97, 2.609, -1.426]}
         rotation={[Math.PI / 2, -0.054, 0]}
       />
       <mesh
-        castShadow
-        receiveShadow
         geometry={nodes.Bike_Pedal_Holder.geometry}
         material={material}
-        position={[-21.426, 0.616, -1.381]}
+        position={[-20.535, 0.616, -1.381]}
         rotation={[-Math.PI / 2, 0, -Math.PI]}
       />
       <mesh
-        castShadow
-        receiveShadow
         geometry={nodes.Bike_Stick.geometry}
         material={material}
-        position={[-21.388, 0.378, -1.48]}
+        position={[-20.497, 0.378, -1.48]}
         rotation={[Math.PI, 0, Math.PI]}
         scale={[1.523, 1, 1.523]}
       />
       <mesh
-        castShadow
-        receiveShadow
         geometry={nodes.Bike_Body.geometry}
         material={material}
-        position={[-21.498, 0.901, -1.391]}
+        position={[-20.607, 0.901, -1.391]}
         rotation={[-Math.PI / 2, 0, -Math.PI]}
       />
       <mesh
-        castShadow
-        receiveShadow
         geometry={nodes.Bike_Bake_Wheel.geometry}
         material={material}
-        position={[-21.809, 0.666, -1.392]}
+        position={[-20.918, 0.666, -1.392]}
         rotation={[Math.PI / 2, -0.242, 0]}
       />
       <mesh
-        castShadow
-        receiveShadow
         geometry={nodes.Bike_Front_Wheel.geometry}
         material={material}
-        position={[-20.869, 0.664, -1.395]}
+        position={[-19.978, 0.664, -1.395]}
         rotation={[Math.PI / 2, -0.242, 0]}
       />
       <mesh
-        castShadow
-        receiveShadow
         geometry={nodes.Plane107.geometry}
         material={material}
-        position={[-21.428, 0.615, -1.385]}
+        position={[-20.537, 0.615, -1.385]}
         rotation={[-Math.PI / 2, 0, -Math.PI]}
       />
       <mesh
-        castShadow
-        receiveShadow
         geometry={nodes.Bike_Pedal.geometry}
         material={material}
-        position={[-21.288, 0.618, -1.376]}
+        position={[-20.397, 0.618, -1.376]}
         rotation={[-Math.PI / 2, 0, -Math.PI]}
       />
       <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.Plane110.geometry}
+        geometry={nodes.Actual_Plane.geometry}
         material={material}
-        position={[-22.099, 2.311, -1.406]}
+        position={[-20.812, 8.181, -1.406]}
         rotation={[Math.PI / 2, -0.029, 0]}
       />
       <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.Cylinder004.geometry}
+        geometry={nodes.Mr_Panda.geometry}
         material={material}
-        position={[-22.043, 4.049, -1.52]}
+        position={[-20.662, -4.833, -1.454]}
         rotation={[Math.PI, 0, Math.PI]}
         scale={[1.523, 1, 1.523]}
       />
       <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.Mr_Panda_Stick.geometry}
+        geometry={nodes.Skeleton_Stick.geometry}
         material={material}
-        position={[-21.553, 0.397, -1.454]}
+        position={[15.013, 1.303, -1.48]}
+        rotation={[Math.PI, 0, Math.PI]}
+        scale={[1.523, 1, 1.523]}
+      />
+      <mesh
+        geometry={nodes.Camel_Stick.geometry}
+        material={material}
+        position={[8.138, 1.997, -1.48]}
+        rotation={[Math.PI, 0, Math.PI]}
+        scale={[1.523, 1, 1.523]}
+      />
+      <mesh
+        geometry={nodes.Ship_Stick.geometry}
+        material={material}
+        position={[-2.512, 0.41, -1.48]}
         rotation={[Math.PI, 0, Math.PI]}
         scale={[1.523, 1, 1.523]}
       />

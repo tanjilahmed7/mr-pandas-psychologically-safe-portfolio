@@ -76,7 +76,7 @@ export default function Model(props) {
       <mesh
         geometry={nodes.Plane116.geometry}
         material={scene_1}
-        position={[-5.845, 1.066, -2.671]}
+        position={[-5.746, 0.854, -2.671]}
         rotation={[-1.501, -0.42, -3.093]}
       />
       <mesh

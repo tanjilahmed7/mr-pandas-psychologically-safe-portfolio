@@ -59,7 +59,7 @@ export default function Model(props) {
       <mesh
         geometry={nodes.Plane131.geometry}
         material={scene_4}
-        position={[17.414, 2.686, -2.609]}
+        position={[17.37, 2.407, -2.609]}
         rotation={[1.566, -0.062, -0.004]}
       />
       <mesh
@@ -78,13 +78,6 @@ export default function Model(props) {
         material={scene_4}
         position={[-20.599, 4.634, -2.755]}
         rotation={[Math.PI / 2, 0, 0]}
-      />
-      <mesh
-        geometry={nodes.Skeleton_Stick.geometry}
-        material={scene_4}
-        position={[15.013, 1.819, -1.48]}
-        rotation={[Math.PI, 0, Math.PI]}
-        scale={[1.523, 1, 1.523]}
       />
     </group>
   );
