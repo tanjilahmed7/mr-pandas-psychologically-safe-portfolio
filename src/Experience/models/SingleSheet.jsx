@@ -26,6 +26,31 @@ export default function Model(props) {
         position={[35.245 - SHIFT_X_AMOUNT, 4.634, -2.755]}
         rotation={[Math.PI / 2, 0, 0]}
       />
+      <mesh
+        geometry={nodes.Single_Sheet_Baked.geometry}
+        material={singlesheet}
+        position={[28.345 - SHIFT_X_AMOUNT, -3.42, -2.755]}
+        rotation={[Math.PI / 2, 0, 0]}
+      />
+      <mesh
+        geometry={nodes.Single_Sheet_Baked.geometry}
+        material={singlesheet}
+        position={[28.345 - SHIFT_X_AMOUNT - 6.9, -3.42, -2.755]}
+        rotation={[Math.PI / 2, 0, 0]}
+      />
+      <mesh
+        geometry={nodes.Single_Sheet_Baked.geometry}
+        material={singlesheet}
+        position={[35.245 - SHIFT_X_AMOUNT, -3.42, -2.755]}
+        rotation={[Math.PI / 2, 0, 0]}
+      />
+
+      <mesh
+        geometry={nodes.Single_Sheet_Baked.geometry}
+        material={singlesheet}
+        position={[35.245 - SHIFT_X_AMOUNT + 6.9, -3.42, -2.755]}
+        rotation={[Math.PI / 2, 0, 0]}
+      />
     </group>
   );
 }
