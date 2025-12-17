@@ -1,4 +1,3 @@
-// Scene.js - Updated version
 import { React, Suspense, useState, useRef } from "react";
 import * as THREE from "three";
 import { useFrame } from "@react-three/fiber";
@@ -19,8 +18,8 @@ import {
 } from "./components/curve";
 import { useScrollCurve } from "./hooks/useScrollCurve";
 
-const WORLD_FORWARD_TRIGGER = 0.9;
-const WORLD_BACK_TRIGGER = 0.88;
+const WORLD_FORWARD_TRIGGER = 0.92;
+const WORLD_BACK_TRIGGER = 0.91;
 const SINGLE_FORWARD_TRIGGER = 0.5;
 const SINGLE_BACK_TRIGGER = 0.35;
 
@@ -43,7 +42,6 @@ const Scene = ({
   const sceneGroupRef = useRef();
   const singleSheetRef = useRef();
 
-  // Keep your existing shift functions
   const shiftWorld = (direction = "forward") => {
     if (!sceneGroupRef.current) return;
     const offset =
@@ -231,7 +229,7 @@ const Scene = ({
           <MovingObjects scrollProgress={scrollProgress} />
           <SceneOne />
           <SceneTwo />
-          <SceneThree />
+          <SceneThree scrollProgress={scrollProgress} />
           <SceneFour />
         </group>
 

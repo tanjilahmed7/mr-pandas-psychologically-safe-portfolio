@@ -1,13 +1,46 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useKTX2Texture } from "../utils/ktxLoader";
+import { useFrame } from "@react-three/fiber";
+import { gsap } from "gsap";
 
-export default function Model(props) {
+import * as THREE from "three";
+
+export default function Model({ scrollProgress, ...props }) {
   const { nodes, materials } = useGLTF("/models/scene_3.glb");
 
-  const pandaCorp = useRef();
+  const pyramidDoorRef = useRef();
+  const lastScrollState = useRef(null);
 
   const scene_3 = useKTX2Texture("/textures/scene_3.ktx2");
+
+  useFrame(() => {
+    if (pyramidDoorRef.current) {
+      const currentProgress = scrollProgress.current;
+      const isAbove052 = currentProgress >= 0.51;
+
+      if (
+        lastScrollState.current !== null &&
+        lastScrollState.current !== isAbove052
+      ) {
+        if (isAbove052) {
+          gsap.to(pyramidDoorRef.current.rotation, {
+            x: Math.PI / 1.4,
+            duration: 1,
+            ease: "power2.out",
+          });
+        } else {
+          gsap.to(pyramidDoorRef.current.rotation, {
+            x: 0,
+            duration: 1,
+            ease: "power2.out",
+          });
+        }
+      }
+
+      lastScrollState.current = isAbove052;
+    }
+  });
 
   return (
     <group {...props} dispose={null}>
@@ -76,6 +109,7 @@ export default function Model(props) {
         position={[12.525, 2.178, -1.07]}
       />
       <mesh
+        ref={pyramidDoorRef}
         geometry={nodes.Pyramid_Door.geometry}
         material={scene_3}
         position={[12.525, 3.395, -0.222]}

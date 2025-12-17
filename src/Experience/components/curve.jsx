@@ -132,31 +132,30 @@ export const rotationTargets = [
 ];
 
 // Extra curves
-
 const PANDA_LAST_X = 36.005978;
 const PANDA_FIRST_X = -20.650911;
-export const PANDA_SHIFT_X_AMOUNT = PANDA_LAST_X - PANDA_FIRST_X + 6.62;
+export const PANDA_SHIFT_X_AMOUNT = PANDA_LAST_X - PANDA_FIRST_X + 6.17;
 const pandaCurveHeightAdjustment = -5.5;
 
 export const initialPandaPoints = [
   new THREE.Vector3(
-    -20.650911,
-    0.590827 + pandaCurveHeightAdjustment,
+    -20.50911,
+    0.790827 + pandaCurveHeightAdjustment,
     -1.341367
   ),
   new THREE.Vector3(
-    -15.177652,
-    0.590827 + pandaCurveHeightAdjustment,
+    -15.077652,
+    0.790827 + pandaCurveHeightAdjustment,
     -1.398876
   ),
   new THREE.Vector3(
     -9.425609,
-    0.590827 + pandaCurveHeightAdjustment,
+    0.790827 + pandaCurveHeightAdjustment,
     -1.341367
   ),
   new THREE.Vector3(
     -3.599831,
-    0.461949 + pandaCurveHeightAdjustment,
+    0.731949 + pandaCurveHeightAdjustment,
     -1.398876
   ),
   new THREE.Vector3(1.926874, 1.49733 + pandaCurveHeightAdjustment, -1.341367),
