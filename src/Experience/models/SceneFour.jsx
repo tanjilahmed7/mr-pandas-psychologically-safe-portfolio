@@ -1,10 +1,30 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useKTX2Texture } from "../utils/ktxLoader";
+import { useFrame } from "@react-three/fiber";
 
 export default function Model(props) {
   const { nodes, materials } = useGLTF("/models/scene_4.glb");
   const scene_4 = useKTX2Texture("/textures/scene_4.ktx2");
+
+  const ghostRef = useRef();
+  const zombieHandRef = useRef();
+
+  useFrame((state) => {
+    const t = state.clock.elapsedTime;
+
+    if (ghostRef) {
+      ghostRef.current.position.y += 0.02;
+
+      if (ghostRef.current.position.y >= 8) {
+        ghostRef.current.position.y = 0.5;
+      }
+    }
+
+    if (zombieHandRef) {
+      zombieHandRef.current.rotation.y = 0.2 * Math.sin(t * 3.5);
+    }
+  });
 
   return (
     <group {...props} dispose={null}>
@@ -15,6 +35,7 @@ export default function Model(props) {
         rotation={[1.566, -0.053, -0.004]}
       />
       <mesh
+        ref={ghostRef}
         geometry={nodes.Ghost.geometry}
         material={scene_4}
         position={[18.485, 1.879, -1.236]}
@@ -57,6 +78,7 @@ export default function Model(props) {
         rotation={[1.566, -0.062, -0.004]}
       />
       <mesh
+        ref={zombieHandRef}
         geometry={nodes.Plane131.geometry}
         material={scene_4}
         position={[17.37, 2.407, -2.609]}

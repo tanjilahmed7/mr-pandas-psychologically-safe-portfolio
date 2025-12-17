@@ -63,18 +63,18 @@ export default function Model({ scrollProgress, cameraScrollCurve, ...props }) {
       const rotationAmplitude = 0.02;
 
       randomOffset.position.x =
-        Math.sin(randomOffset.time * 3 + 0.5) * positionAmplitude;
+        Math.sin(randomOffset.time * 1.8 + 0.5) * positionAmplitude * 0.3;
       randomOffset.position.y =
-        Math.sin(randomOffset.time * 3 + 1.2) * positionAmplitude;
+        Math.sin(randomOffset.time * 1.8 + 1.2) * positionAmplitude * 0.3;
       randomOffset.position.z =
-        Math.sin(randomOffset.time * 1.1 + 2.1) * positionAmplitude * 0;
+        Math.sin(randomOffset.time * 1.1 + 2.1) * positionAmplitude * 0.2;
 
       randomOffset.rotation.x =
         Math.sin(randomOffset.time * 2 + 0.8) * rotationAmplitude * 0.2;
       randomOffset.rotation.y =
-        Math.sin(randomOffset.time * 0.9 + 1.5) * rotationAmplitude;
+        Math.sin(randomOffset.time * 0.9 + 1.5) * rotationAmplitude * 0;
       randomOffset.rotation.z =
-        Math.sin(randomOffset.time * 0.6 + 2.3) * rotationAmplitude;
+        Math.sin(randomOffset.time * 0.6 + 2.3) * rotationAmplitude * 0;
 
       pandaRef.current.position.x = THREE.MathUtils.lerp(
         pandaRef.current.position.x,

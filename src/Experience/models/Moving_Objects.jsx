@@ -65,56 +65,56 @@ export default function Model({ scrollProgress, ...props }) {
     randomOffsets.camel.position.z =
       Math.sin(randomOffsets.camel.time * 0.9 + 2.2) * camelPosAmp * 0.3;
     randomOffsets.camel.rotation.x =
-      Math.sin(randomOffsets.camel.time * 0.8 + 0.7) * camelRotAmp;
+      Math.sin(randomOffsets.camel.time * 0.8 + 0.7) * camelRotAmp * 0.1;
     randomOffsets.camel.rotation.y =
-      Math.sin(randomOffsets.camel.time * 1.0 + 1.3) * camelRotAmp;
+      Math.sin(randomOffsets.camel.time * 1.0 + 1.3) * camelRotAmp * 0.1;
     randomOffsets.camel.rotation.z =
-      Math.sin(randomOffsets.camel.time * 0.7 + 2.1) * camelRotAmp * 0.5;
+      Math.sin(randomOffsets.camel.time * 0.7 + 2.1) * camelRotAmp * 0.1;
 
     const bikePosAmp = 0.02;
     const bikeRotAmp = 0.01;
     randomOffsets.bike.position.x =
-      Math.sin(randomOffsets.bike.time * 2.1 + 0.8) * bikePosAmp;
+      Math.sin(randomOffsets.bike.time * 2.1 + 0.8) * bikePosAmp * 0.3;
     randomOffsets.bike.position.y =
       Math.sin(randomOffsets.bike.time * 2.3 + 1.5) * bikePosAmp * 0.8;
     randomOffsets.bike.position.z =
-      Math.sin(randomOffsets.bike.time * 1.8 + 2.7) * bikePosAmp * 0.2;
+      Math.sin(randomOffsets.bike.time * 1.8 + 2.7) * bikePosAmp * 0.1;
     randomOffsets.bike.rotation.x =
-      Math.sin(randomOffsets.bike.time * 1.9 + 0.4) * bikeRotAmp;
+      Math.sin(randomOffsets.bike.time * 1.9 + 0.4) * bikeRotAmp * 0.1;
     randomOffsets.bike.rotation.y =
-      Math.sin(randomOffsets.bike.time * 1.7 + 1.8) * bikeRotAmp;
+      Math.sin(randomOffsets.bike.time * 1.7 + 1.8) * bikeRotAmp * 0.3;
     randomOffsets.bike.rotation.z =
-      Math.sin(randomOffsets.bike.time * 1.5 + 2.9) * bikeRotAmp * 0.4;
+      Math.sin(randomOffsets.bike.time * 1.5 + 2.9) * bikeRotAmp * 0.1;
 
-    const shipPosAmp = 0.06;
+    const shipPosAmp = 0.04;
     const shipRotAmp = 0.025;
     randomOffsets.ship.position.x =
-      Math.sin(randomOffsets.ship.time * 0.6 + 1.2) * shipPosAmp * 0.7;
+      Math.sin(randomOffsets.ship.time * 0.6 + 1.2) * shipPosAmp * 0.6;
     randomOffsets.ship.position.y =
-      Math.sin(randomOffsets.ship.time * 0.8 + 0.9) * shipPosAmp;
+      Math.sin(randomOffsets.ship.time * 0.8 + 0.9) * shipPosAmp * 0.2;
     randomOffsets.ship.position.z =
-      Math.sin(randomOffsets.ship.time * 0.5 + 1.8) * shipPosAmp * 0.4;
+      Math.sin(randomOffsets.ship.time * 0.5 + 1.8) * shipPosAmp * 0.1;
     randomOffsets.ship.rotation.x =
-      Math.sin(randomOffsets.ship.time * 0.7 + 1.1) * shipRotAmp;
+      Math.sin(randomOffsets.ship.time * 0.7 + 1.1) * shipRotAmp * 0.1;
     randomOffsets.ship.rotation.y =
-      Math.sin(randomOffsets.ship.time * 0.4 + 2.3) * shipRotAmp * 0.8;
+      Math.sin(randomOffsets.ship.time * 0.4 + 2.3) * shipRotAmp * 0.2;
     randomOffsets.ship.rotation.z =
-      Math.sin(randomOffsets.ship.time * 0.6 + 0.6) * shipRotAmp;
+      Math.sin(randomOffsets.ship.time * 0.6 + 0.6) * shipRotAmp * 0;
 
     const skeletonPosAmp = 0.05;
     const skeletonRotAmp = 0.02;
     randomOffsets.skeleton.position.x =
-      Math.sin(randomOffsets.skeleton.time * 0.9 + 2.1) * skeletonPosAmp * 0.8;
+      Math.sin(randomOffsets.skeleton.time * 0.9 + 2.1) * skeletonPosAmp * 0.2;
     randomOffsets.skeleton.position.y =
-      Math.sin(randomOffsets.skeleton.time * 1.2 + 0.4) * skeletonPosAmp * 1.2;
+      Math.sin(randomOffsets.skeleton.time * 1.2 + 0.4) * skeletonPosAmp * 0.3;
     randomOffsets.skeleton.position.z =
-      Math.sin(randomOffsets.skeleton.time * 0.7 + 1.6) * skeletonPosAmp * 0.3;
+      Math.sin(randomOffsets.skeleton.time * 0.7 + 1.6) * skeletonPosAmp * 0.1;
     randomOffsets.skeleton.rotation.x =
-      Math.sin(randomOffsets.skeleton.time * 0.8 + 1.9) * skeletonRotAmp;
+      Math.sin(randomOffsets.skeleton.time * 0.8 + 1.9) * skeletonRotAmp * 0.1;
     randomOffsets.skeleton.rotation.y =
-      Math.sin(randomOffsets.skeleton.time * 1.1 + 0.2) * skeletonRotAmp;
+      Math.sin(randomOffsets.skeleton.time * 1.1 + 0.2) * skeletonRotAmp * 0.1;
     randomOffsets.skeleton.rotation.z =
-      Math.sin(randomOffsets.skeleton.time * 0.9 + 2.8) * skeletonRotAmp * 0.6;
+      Math.sin(randomOffsets.skeleton.time * 0.9 + 2.8) * skeletonRotAmp * 0.1;
 
     if (
       scrollProgress.current >= 0 &&
@@ -292,7 +292,7 @@ export default function Model({ scrollProgress, ...props }) {
       bikeGroupRef.current.position.set(
         randomOffsets.bike.basePosition.x + randomOffsets.bike.position.x,
         randomOffsets.bike.basePosition.y + randomOffsets.bike.position.y,
-        randomOffsets.bike.basePosition.z + randomOffsets.bike.position.z
+        randomOffsets.bike.basePosition.z + randomOffsets.bike.position.z - 0.05
       );
       bikeGroupRef.current.rotation.x = randomOffsets.bike.rotation.x;
       bikeGroupRef.current.rotation.y = randomOffsets.bike.rotation.y;
@@ -372,7 +372,7 @@ export default function Model({ scrollProgress, ...props }) {
         />
       </group>
 
-      <group ref={bikeGroupRef}>
+      <group ref={bikeGroupRef} position={[0, 0, -0.2]}>
         <group
           ref={bikePedalHolderRef}
           position={[-20.535, 0.616, -1.381]}
@@ -436,17 +436,17 @@ export default function Model({ scrollProgress, ...props }) {
         <mesh
           geometry={nodes.Skeleton_Stick.geometry}
           material={material}
-          position={[15.013, 1.303, -1.48]}
+          position={[15.013, 1.303, -1.34]}
           rotation={[Math.PI, 0, Math.PI]}
           scale={[1.523, 1, 1.523]}
         />
       </group>
 
-      <group position={[-0.2, 0, 0]} ref={shipGroupRef}>
+      <group position={[-0.2, 0, 0.2]} ref={shipGroupRef}>
         <mesh
           geometry={nodes.Ship_Stick.geometry}
           material={material}
-          position={[-2.512, 0.41, -1.48]}
+          position={[-2.512, 0.41, -1.34]}
           rotation={[Math.PI, 0, Math.PI]}
           scale={[1.523, 1, 1.523]}
         />

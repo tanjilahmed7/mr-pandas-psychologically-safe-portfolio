@@ -15,6 +15,7 @@ export default function Model(props) {
   const oceanOne = useRef();
   const oceanTwo = useRef();
   const oceanThree = useRef();
+  const dolphinRef = useRef();
 
   useFrame((state) => {
     const t = state.clock.elapsedTime;
@@ -23,6 +24,9 @@ export default function Model(props) {
     oceanOne.current.position.y = 0.24 * Math.sin(t + Math.PI / 4) + 1;
     oceanTwo.current.position.y = 0.2 * Math.sin(t) + 1.4;
     oceanThree.current.position.y = 0.2 * Math.sin(t + Math.PI / 3) + 1.8;
+
+    dolphinRef.current.position.y = 1.5 * Math.sin(t * 2 + Math.PI / 3) + 2.3;
+    dolphinRef.current.rotation.y = 1.5 * Math.sin(t * 2);
   });
 
   return (
@@ -67,6 +71,7 @@ export default function Model(props) {
         rotation={[Math.PI / 2, 0.037, 0]}
       />
       <mesh
+        ref={dolphinRef}
         geometry={nodes.Dolphin.geometry}
         material={scene_2}
         position={[5.608, 2.146, -1.252]}
