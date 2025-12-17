@@ -28,6 +28,7 @@ export const useKTX2Texture = (
       map: texture,
       transparent,
       alphaTest: alphaTestValue,
+      side: THREE.DoubleSide,
     });
   }, [texture, transparent, alphaTestValue]);
 

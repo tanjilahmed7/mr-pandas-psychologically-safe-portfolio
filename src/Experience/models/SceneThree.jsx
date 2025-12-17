@@ -12,6 +12,20 @@ export default function Model({ scrollProgress, ...props }) {
   const pyramidDoorRef = useRef();
   const lastScrollState = useRef(null);
 
+  const firstJobRef = useRef(null);
+  const secondJobRef = useRef(null);
+
+  const firstJobHovered = useRef(false);
+  const secondJobHovered = useRef(false);
+
+  const firstJobOriginalZ = -2.754;
+  const secondJobOriginalZ = -2.754;
+
+  const firstJobHoverZ = firstJobOriginalZ + 5;
+  const secondJobHoverZ = secondJobOriginalZ + 5;
+
+  const lerpFactor = 0.08;
+
   const scene_3 = useKTX2Texture("/textures/scene_3.ktx2");
 
   useFrame(() => {
@@ -39,6 +53,22 @@ export default function Model({ scrollProgress, ...props }) {
       }
 
       lastScrollState.current = isAbove052;
+    }
+
+    if (firstJobRef.current) {
+      const targetZ = firstJobHovered.current
+        ? firstJobHoverZ
+        : firstJobOriginalZ;
+      firstJobRef.current.position.z +=
+        (targetZ - firstJobRef.current.position.z) * lerpFactor;
+    }
+
+    if (secondJobRef.current) {
+      const targetZ = secondJobHovered.current
+        ? secondJobHoverZ
+        : secondJobOriginalZ;
+      secondJobRef.current.position.z +=
+        (targetZ - secondJobRef.current.position.z) * lerpFactor;
     }
   });
 
@@ -81,16 +111,22 @@ export default function Model({ scrollProgress, ...props }) {
         rotation={[Math.PI / 2, 0.023, 0]}
       />
       <mesh
+        ref={firstJobRef}
         geometry={nodes.Human_Resarcher.geometry}
         material={scene_3}
-        position={[8.363, 3.436, -2.754]}
+        position={[8.363, 3.436, firstJobOriginalZ]}
         rotation={[Math.PI / 2, 0.073, 0]}
+        onPointerEnter={() => (firstJobHovered.current = true)}
+        onPointerLeave={() => (firstJobHovered.current = false)}
       />
       <mesh
+        ref={secondJobRef}
         geometry={nodes.Senior_Human_Researcher.geometry}
         material={scene_3}
-        position={[10.062, 3.516, -2.754]}
+        position={[10.062, 3.516, secondJobOriginalZ]}
         rotation={[Math.PI / 2, -0.127, 0]}
+        onPointerEnter={() => (secondJobHovered.current = true)}
+        onPointerLeave={() => (secondJobHovered.current = false)}
       />
       <mesh
         geometry={nodes.Plane115.geometry}

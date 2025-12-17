@@ -9,11 +9,25 @@ export default function Model(props) {
 
   const ghostRef = useRef();
   const zombieHandRef = useRef();
+  const firstPaperRef = useRef();
+  const secondPaperRef = useRef();
+
+  // Hover states using useRef
+  const firstPaperHovered = useRef(false);
+  const secondPaperHovered = useRef(false);
+
+  const firstPaperOriginalZ = -2.754;
+  const secondPaperOriginalZ = -2.754;
+
+  const firstPaperHoverZ = firstPaperOriginalZ + 5;
+  const secondPaperHoverZ = secondPaperOriginalZ + 5;
+
+  const lerpFactor = 0.1;
 
   useFrame((state) => {
     const t = state.clock.elapsedTime;
 
-    if (ghostRef) {
+    if (ghostRef.current) {
       ghostRef.current.position.y += 0.02;
 
       if (ghostRef.current.position.y >= 8) {
@@ -21,8 +35,25 @@ export default function Model(props) {
       }
     }
 
-    if (zombieHandRef) {
+    if (zombieHandRef.current) {
       zombieHandRef.current.rotation.y = 0.2 * Math.sin(t * 3.5);
+    }
+
+    if (firstPaperRef.current) {
+      const targetZ = firstPaperHovered.current
+        ? firstPaperHoverZ
+        : firstPaperOriginalZ;
+      firstPaperRef.current.position.z +=
+        (targetZ - firstPaperRef.current.position.z) * lerpFactor;
+    }
+
+    // Lerp second paper Z position
+    if (secondPaperRef.current) {
+      const targetZ = secondPaperHovered.current
+        ? secondPaperHoverZ
+        : secondPaperOriginalZ;
+      secondPaperRef.current.position.z +=
+        (targetZ - secondPaperRef.current.position.z) * lerpFactor;
     }
   });
 
@@ -54,16 +85,22 @@ export default function Model(props) {
         rotation={[Math.PI / 2, -0.064, 0]}
       />
       <mesh
+        ref={firstPaperRef}
         geometry={nodes.Plane125.geometry}
         material={scene_4}
-        position={[16.29, 3.282, -2.754]}
+        position={[16.29, 3.282, firstPaperOriginalZ]}
         rotation={[Math.PI / 2, -0.007, 0]}
+        onPointerEnter={() => (firstPaperHovered.current = true)}
+        onPointerLeave={() => (firstPaperHovered.current = false)}
       />
       <mesh
+        ref={secondPaperRef}
         geometry={nodes.Plane126.geometry}
         material={scene_4}
-        position={[17.918, 4.052, -2.754]}
+        position={[17.918, 4.052, secondPaperOriginalZ]}
         rotation={[Math.PI / 2, -0.114, 0]}
+        onPointerEnter={() => (secondPaperHovered.current = true)}
+        onPointerLeave={() => (secondPaperHovered.current = false)}
       />
       <mesh
         geometry={nodes.Plane127.geometry}

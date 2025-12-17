@@ -15,6 +15,20 @@ export default function Model(props) {
   const waterfall = useRef();
   const waterfallFoam = useRef();
 
+  const introRef = useRef();
+  const aboutRef = useRef();
+
+  const introHovered = useRef(false);
+  const aboutHovered = useRef(false);
+
+  const introOriginalZ = -2.752;
+  const aboutOriginalZ = -2.752;
+
+  const introHoverZ = introOriginalZ + 3;
+  const aboutHoverZ = aboutOriginalZ + 3;
+
+  const lerpFactor = 0.08;
+
   const waterfallone = useKTX2Texture("/textures/waterfall_one.ktx2");
   const waterfalltwo = useKTX2Texture("/textures/waterfall_two.ktx2");
   const not_waterfall = useKTX2Texture("/textures/not_waterfall.ktx2");
@@ -24,14 +38,12 @@ export default function Model(props) {
   useFrame((state) => {
     const t = state.clock.elapsedTime;
 
-    // Dragon
     dragonHead.current.rotation.y = 0.2 * Math.sin(t * 0.8);
     dragonLegFrontLeft.current.rotation.y = 0.3 * Math.sin(t + Math.PI);
     dragonLegBackLeft.current.rotation.y = 0.3 * Math.sin(t * 0.9 + Math.PI);
     dragonLegFrontRight.current.rotation.y = 0.2 * Math.sin(t);
     dragonLegBackRight.current.rotation.y = 0.2 * Math.sin(t + Math.PI);
 
-    // Waterfall
     const useAlt = Math.sin(t * 4) > 0;
     const mat = useAlt ? waterfalltwo : waterfallone;
 
@@ -41,6 +53,18 @@ export default function Model(props) {
 
     if (waterfallFoam.current) {
       waterfallFoam.current.material = mat;
+    }
+
+    if (introRef.current) {
+      const targetZ = introHovered.current ? introHoverZ : introOriginalZ;
+      introRef.current.position.z +=
+        (targetZ - introRef.current.position.z) * lerpFactor;
+    }
+
+    if (aboutRef.current) {
+      const targetZ = aboutHovered.current ? aboutHoverZ : aboutOriginalZ;
+      aboutRef.current.position.z +=
+        (targetZ - aboutRef.current.position.z) * lerpFactor;
     }
   });
 
@@ -100,6 +124,83 @@ export default function Model(props) {
         rotation={[Math.PI / 2, 0.781, 0]}
       />
       <mesh
+        geometry={nodes.Plane019.geometry}
+        material={scene_1}
+        position={[-7.18, 0.6, -0.032]}
+        rotation={[Math.PI / 2, -0.102, 0]}
+      />
+      <mesh
+        geometry={nodes.Plane021.geometry}
+        material={scene_1}
+        position={[-8.939, 0.6, -0.632]}
+        rotation={[Math.PI / 2, -0.102, 0]}
+      />
+      <mesh
+        geometry={nodes.Plane035.geometry}
+        material={scene_1}
+        position={[-10.407, 0.6, -0.18]}
+        rotation={[Math.PI / 2, -0.102, 0]}
+      />
+      <mesh
+        geometry={nodes.Plane044.geometry}
+        material={scene_1}
+        position={[-5.758, 0.567, -0.294]}
+        rotation={[Math.PI / 2, -0.102, 0]}
+      />
+      <mesh
+        geometry={nodes.Plane051.geometry}
+        material={scene_1}
+        position={[-16.072, 0.543, -0.242]}
+        rotation={[Math.PI / 2, -0.102, 0]}
+      />
+      <mesh
+        geometry={nodes.Plane067.geometry}
+        material={scene_1}
+        position={[-17.956, 0.6, -0.18]}
+        rotation={[Math.PI / 2, -0.102, 0]}
+      />
+      <mesh
+        geometry={nodes.Plane097.geometry}
+        material={scene_1}
+        position={[-14.164, 0.565, -2.277]}
+        rotation={[Math.PI / 2, -0.102, 0]}
+      />
+      <mesh
+        geometry={nodes.Plane098.geometry}
+        material={scene_1}
+        position={[-18.584, 0.576, -2.295]}
+        rotation={[Math.PI / 2, -0.102, 0]}
+      />
+      <mesh
+        geometry={nodes.Plane099.geometry}
+        material={scene_1}
+        position={[-12.503, 0.574, -2.199]}
+        rotation={[Math.PI / 2, -0.102, 0]}
+      />
+      <mesh
+        geometry={nodes.Plane100.geometry}
+        material={scene_1}
+        position={[-14.476, 0.585, -0.393]}
+        rotation={[Math.PI / 2, -0.102, 0]}
+      />
+      <mesh
+        geometry={nodes.Plane101.geometry}
+        material={scene_1}
+        position={[-16.49, 0.655, -1.962]}
+        rotation={[Math.PI / 2, -0.102, 0]}
+      />
+      <mesh
+        geometry={nodes.Plane102.geometry}
+        material={scene_1}
+        position={[-5.192, 0.585, -0.816]}
+        rotation={[Math.PI / 2, -0.102, 0]}
+      />
+      <mesh
+        geometry={nodes["First_Scene_-_Bg"].geometry}
+        material={scene_1_bg}
+        position={[-21.188, 0.605, -0.262]}
+      />
+      <mesh
         geometry={nodes["First_Scene_-_Bg001"].geometry}
         material={scene_1_bg}
         position={[-21.188, 0.605, -0.262]}
@@ -109,6 +210,24 @@ export default function Model(props) {
         material={not_waterfall}
         position={[-7.867, 2.012, -2.444]}
         rotation={[Math.PI / 2, 0.025, 0]}
+      />
+      <mesh
+        ref={introRef}
+        geometry={nodes.intro.geometry}
+        material={not_waterfall}
+        position={[-17.941, 2.096, introOriginalZ]}
+        rotation={[Math.PI / 2, 0.025, 0]}
+        onPointerEnter={() => (introHovered.current = true)}
+        onPointerLeave={() => (introHovered.current = false)}
+      />
+      <mesh
+        ref={aboutRef}
+        geometry={nodes.about.geometry}
+        material={not_waterfall}
+        position={[-15.7, 1.987, aboutOriginalZ]}
+        rotation={[Math.PI / 2, 0.025, 0]}
+        onPointerEnter={() => (aboutHovered.current = true)}
+        onPointerLeave={() => (aboutHovered.current = false)}
       />
       <mesh
         ref={waterfall}
