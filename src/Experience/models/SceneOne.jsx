@@ -15,6 +15,18 @@ export default function Model(props) {
   const waterfall = useRef();
   const waterfallFoam = useRef();
 
+  const grass1 = useRef();
+  const grass2 = useRef();
+  const grass3 = useRef();
+  const grass4 = useRef();
+  const grass5 = useRef();
+  const grass6 = useRef();
+  const grass7 = useRef();
+  const grass8 = useRef();
+  const grass9 = useRef();
+  const grass10 = useRef();
+  const grass11 = useRef();
+
   const introRef = useRef();
   const aboutRef = useRef();
 
@@ -59,6 +71,20 @@ export default function Model(props) {
       const targetZ = introHovered.current ? introHoverZ : introOriginalZ;
       introRef.current.position.z +=
         (targetZ - introRef.current.position.z) * lerpFactor;
+    }
+
+    if (grass1.current) {
+      grass1.current.scale.z = 0.2 * Math.sin(t * 3.5) + 1.2;
+      grass2.current.scale.z = 0.2 * Math.sin(t * 3.5) + 1.2;
+      grass3.current.scale.z = 0.2 * Math.sin(t * 3.5) + 1.2;
+      grass4.current.scale.z = 0.2 * Math.sin(t * 3.5) + 1.2;
+      grass5.current.scale.z = 0.2 * Math.sin(t * 3.5) + 1.2;
+      grass6.current.scale.z = 0.2 * Math.sin(t * 3.5) + 1.2;
+      grass7.current.scale.z = 0.2 * Math.sin(t * 3.5) + 1.2;
+      grass8.current.scale.z = 0.2 * Math.sin(t * 3.5) + 1.2;
+      grass9.current.scale.z = 0.2 * Math.sin(t * 3.5) + 1.2;
+      grass10.current.scale.z = 0.2 * Math.sin(t * 3.5) + 1.2;
+      grass11.current.scale.z = 0.2 * Math.sin(t * 3.5) + 1.2;
     }
 
     if (aboutRef.current) {
@@ -124,48 +150,56 @@ export default function Model(props) {
         rotation={[Math.PI / 2, 0.781, 0]}
       />
       <mesh
+        ref={grass11}
         geometry={nodes.Plane019.geometry}
         material={scene_1}
         position={[-7.18, 0.6, -0.032]}
         rotation={[Math.PI / 2, -0.102, 0]}
       />
       <mesh
+        ref={grass10}
         geometry={nodes.Plane021.geometry}
         material={scene_1}
         position={[-8.939, 0.6, -0.632]}
         rotation={[Math.PI / 2, -0.102, 0]}
       />
       <mesh
+        ref={grass1}
         geometry={nodes.Plane035.geometry}
         material={scene_1}
         position={[-10.407, 0.6, -0.18]}
         rotation={[Math.PI / 2, -0.102, 0]}
       />
       <mesh
+        ref={grass9}
         geometry={nodes.Plane044.geometry}
         material={scene_1}
         position={[-5.758, 0.567, -0.294]}
         rotation={[Math.PI / 2, -0.102, 0]}
       />
       <mesh
+        ref={grass8}
         geometry={nodes.Plane051.geometry}
         material={scene_1}
         position={[-16.072, 0.543, -0.242]}
         rotation={[Math.PI / 2, -0.102, 0]}
       />
       <mesh
+        ref={grass2}
         geometry={nodes.Plane067.geometry}
         material={scene_1}
         position={[-17.956, 0.6, -0.18]}
         rotation={[Math.PI / 2, -0.102, 0]}
       />
       <mesh
+        ref={grass7}
         geometry={nodes.Plane097.geometry}
         material={scene_1}
         position={[-14.164, 0.565, -2.277]}
         rotation={[Math.PI / 2, -0.102, 0]}
       />
       <mesh
+        ref={grass3}
         geometry={nodes.Plane098.geometry}
         material={scene_1}
         position={[-18.584, 0.576, -2.295]}
@@ -178,18 +212,21 @@ export default function Model(props) {
         rotation={[Math.PI / 2, -0.102, 0]}
       />
       <mesh
+        ref={grass6}
         geometry={nodes.Plane100.geometry}
         material={scene_1}
         position={[-14.476, 0.585, -0.393]}
         rotation={[Math.PI / 2, -0.102, 0]}
       />
       <mesh
+        ref={grass5}
         geometry={nodes.Plane101.geometry}
         material={scene_1}
         position={[-16.49, 0.655, -1.962]}
         rotation={[Math.PI / 2, -0.102, 0]}
       />
       <mesh
+        ref={grass4}
         geometry={nodes.Plane102.geometry}
         material={scene_1}
         position={[-5.192, 0.585, -0.816]}

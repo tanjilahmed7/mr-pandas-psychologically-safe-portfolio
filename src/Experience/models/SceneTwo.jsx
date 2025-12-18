@@ -16,17 +16,30 @@ export default function Model(props) {
   const oceanTwo = useRef();
   const oceanThree = useRef();
   const dolphinRef = useRef();
+  const treasureChestTopGroupRef = useRef();
+
+  const treasureChestHovered = useRef(false);
+  const treasureChestOriginalY = 1.259;
+  const treasureChestHoverY = treasureChestOriginalY + 0.5;
+  const lerpFactor = 0.08;
 
   useFrame((state) => {
     const t = state.clock.elapsedTime;
 
-    // Oceans
     oceanOne.current.position.y = 0.24 * Math.sin(t + Math.PI / 4) + 1;
     oceanTwo.current.position.y = 0.2 * Math.sin(t) + 1.4;
     oceanThree.current.position.y = 0.2 * Math.sin(t + Math.PI / 3) + 1.8;
 
     dolphinRef.current.position.y = 1.5 * Math.sin(t * 2 + Math.PI / 3) + 2.3;
     dolphinRef.current.rotation.y = 1.5 * Math.sin(t * 2);
+
+    if (treasureChestTopGroupRef.current) {
+      const targetY = treasureChestHovered.current
+        ? treasureChestHoverY
+        : treasureChestOriginalY;
+      treasureChestTopGroupRef.current.position.y +=
+        (targetY - treasureChestTopGroupRef.current.position.y) * lerpFactor;
+    }
   });
 
   return (
@@ -84,18 +97,24 @@ export default function Model(props) {
         position={[3.313, 2.244, -2.137]}
         rotation={[Math.PI / 2, -0.124, 0]}
       />
-      <mesh
-        geometry={nodes.Treasure_Chest_Top.geometry}
-        material={scene_2}
-        position={[3.33, 2.519, -2.126]}
-        rotation={[Math.PI / 2, -0.124, 0]}
-      />
-      <mesh
-        geometry={nodes.Lock.geometry}
-        material={scene_2}
-        position={[3.193, 2.28, -2.122]}
-        rotation={[Math.PI / 2, -0.124, 0]}
-      />
+      <group
+        ref={treasureChestTopGroupRef}
+        onPointerEnter={() => (treasureChestHovered.current = true)}
+        onPointerLeave={() => (treasureChestHovered.current = false)}
+      >
+        <mesh
+          geometry={nodes.Treasure_Chest_Top.geometry}
+          material={scene_2}
+          position={[3.33, treasureChestOriginalY, -2.126]}
+          rotation={[Math.PI / 2, -0.124, 0]}
+        />
+        <mesh
+          geometry={nodes.Lock.geometry}
+          material={scene_2}
+          position={[3.193, 1.04, -2.122]}
+          rotation={[Math.PI / 2, -0.124, 0]}
+        />
+      </group>
       <mesh
         geometry={nodes.Plane045.geometry}
         material={scene_2}

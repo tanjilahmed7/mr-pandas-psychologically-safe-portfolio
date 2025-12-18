@@ -22,6 +22,7 @@ export default function Model({ scrollProgress, ...props }) {
   const bikePedalRef = useRef();
   const shipGroupRef = useRef();
   const skeletonGroupRef = useRef();
+  const planeRef = useRef();
 
   const [randomOffsets] = useState(() => ({
     camel: {
@@ -51,6 +52,11 @@ export default function Model({ scrollProgress, ...props }) {
   }));
 
   useFrame((state, delta) => {
+    const t = state.clock.elapsedTime;
+
+    planeRef.current.position.y = 0.2 * Math.sin(t * 0.4) + 8.3;
+    planeRef.current.rotation.y = 0.02 * Math.sin(t * 0.4);
+
     randomOffsets.camel.time += delta;
     randomOffsets.bike.time += delta;
     randomOffsets.ship.time += delta;
@@ -427,6 +433,7 @@ export default function Model({ scrollProgress, ...props }) {
       </group>
 
       <mesh
+        ref={planeRef}
         geometry={nodes.Actual_Plane.geometry}
         material={material}
         position={[-20.812, 8.181, -1.406]}
