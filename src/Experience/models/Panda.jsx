@@ -15,7 +15,6 @@ export default function Model({ scrollProgress, cameraScrollCurve, ...props }) {
   const material = useKTX2Texture("/textures/Moving_extras.ktx2");
   const pandaRef = useRef();
 
-  // Random movement state
   const [randomOffset] = useState(() => ({
     position: new THREE.Vector3(),
     rotation: new THREE.Euler(),
@@ -92,7 +91,6 @@ export default function Model({ scrollProgress, cameraScrollCurve, ...props }) {
         0.1
       );
 
-      // Apply random rotation on top of base rotation
       pandaRef.current.rotation.x = Math.PI + randomOffset.rotation.x;
       pandaRef.current.rotation.y = 0 + randomOffset.rotation.y;
       pandaRef.current.rotation.z = Math.PI + randomOffset.rotation.z;

@@ -33,9 +33,7 @@ const IntroScreen = () => {
       <div ref={introRef} className={styles.introScreen}>
         <div className={styles.introScreenContent}>
           <div>
-            This template loader is so basic, but I'm too lazy to change it.
-            <br /> plz wait until your experience is done loading. thx.
-            <br /> scroll/swipe to navigate!! 😊
+            <br /> 🐼 scroll/swipe to navigate!! 😊
           </div>
 
           <div className={styles.progressBarContainer}>
