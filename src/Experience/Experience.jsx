@@ -1,16 +1,9 @@
 import React, { useRef, useEffect, useMemo } from "react";
 import { Canvas, extend, useThree } from "@react-three/fiber";
-import {
-  PerspectiveCamera,
-  OrbitControls,
-  CameraControls,
-} from "@react-three/drei";
+import { PerspectiveCamera, OrbitControls } from "@react-three/drei";
 import Scene from "./Scene";
-import * as TSL from "three/tsl";
 import * as THREE from "three/webgpu";
 import normalizeWheel from "normalize-wheel";
-
-import { LinearSRGBColorSpace, NoToneMapping } from "three/webgpu";
 
 const Experience = () => {
   const camera = useRef();

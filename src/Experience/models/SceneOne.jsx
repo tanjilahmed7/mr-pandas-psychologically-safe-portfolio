@@ -7,11 +7,14 @@ import * as THREE from "three";
 export default function Model(props) {
   const { nodes, materials } = useGLTF("/models/scene_1.glb");
 
+  const mrsPandaRef = useRef();
+
   const dragonHead = useRef();
   const dragonLegFrontLeft = useRef();
   const dragonLegBackLeft = useRef();
   const dragonLegFrontRight = useRef();
   const dragonLegBackRight = useRef();
+
   const waterfall = useRef();
   const waterfallFoam = useRef();
 
@@ -29,21 +32,27 @@ export default function Model(props) {
 
   const introRef = useRef();
   const aboutRef = useRef();
-
   const introHovered = useRef(false);
   const aboutHovered = useRef(false);
-
   const introOriginalZ = -2.752;
   const aboutOriginalZ = -2.752;
-
   const introHoverZ = introOriginalZ + 3;
   const aboutHoverZ = aboutOriginalZ + 3;
+
+  const mrsPandaHovered = useRef(false);
+  const mrsPandaOriginalRotY = -0.42;
+  const mrsPandaHoverRotY = mrsPandaOriginalRotY - 0.3;
 
   const lerpFactor = 0.08;
 
   const waterfallone = useKTX2Texture("/textures/waterfall_one.ktx2");
   const waterfalltwo = useKTX2Texture("/textures/waterfall_two.ktx2");
-  const not_waterfall = useKTX2Texture("/textures/not_waterfall.ktx2");
+  const not_waterfall = useKTX2Texture(
+    "/textures/not_waterfall.ktx2",
+    true,
+    0.6,
+    "double"
+  );
   const scene_1_bg = useKTX2Texture("/textures/scene_1_bg.ktx2");
   const scene_1 = useKTX2Texture("/textures/scene_1.ktx2");
 
@@ -92,6 +101,14 @@ export default function Model(props) {
       aboutRef.current.position.z +=
         (targetZ - aboutRef.current.position.z) * lerpFactor;
     }
+
+    if (mrsPandaRef.current) {
+      const targetRotY = mrsPandaHovered.current
+        ? mrsPandaHoverRotY
+        : mrsPandaOriginalRotY;
+      mrsPandaRef.current.rotation.y +=
+        (targetRotY - mrsPandaRef.current.rotation.y) * lerpFactor;
+    }
   });
 
   return (
@@ -124,10 +141,13 @@ export default function Model(props) {
         rotation={[Math.PI / 2, -0.19, 0]}
       />
       <mesh
+        ref={mrsPandaRef}
         geometry={nodes.Plane116.geometry}
         material={scene_1}
         position={[-5.746, 0.854, -2.671]}
-        rotation={[-1.501, -0.42, -3.093]}
+        rotation={[-1.501, mrsPandaOriginalRotY, -3.093]}
+        onPointerEnter={() => (mrsPandaHovered.current = true)}
+        onPointerLeave={() => (mrsPandaHovered.current = false)}
       />
       <mesh
         geometry={nodes.Plane124.geometry}

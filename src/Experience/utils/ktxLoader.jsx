@@ -6,7 +6,8 @@ import { useEffect, useMemo } from "react";
 export const useKTX2Texture = (
   textureUrl,
   transparent = true,
-  alphaTestValue = 0.6
+  alphaTestValue = 0.6,
+  side = "front"
 ) => {
   const { gl } = useThree();
 
@@ -28,7 +29,7 @@ export const useKTX2Texture = (
       map: texture,
       transparent,
       alphaTest: alphaTestValue,
-      side: THREE.DoubleSide,
+      side: side === "front" ? THREE.FrontSide : THREE.DoubleSide,
     });
   }, [texture, transparent, alphaTestValue]);
 
