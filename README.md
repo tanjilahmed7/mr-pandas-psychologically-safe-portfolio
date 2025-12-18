@@ -1,4 +1,4 @@
-# Mr. Panda's Psychologically Safe Portfolio
+# 😊 Mr. Panda's Psychologically Safe Portfolio 🐼
 
 **[Live site](https://www.mr-pandas-psychologically-safe-portfolio.com/)**
 
