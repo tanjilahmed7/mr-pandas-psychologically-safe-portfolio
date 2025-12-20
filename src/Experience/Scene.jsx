@@ -236,7 +236,7 @@ const Scene = ({
           cameraScrollCurve={cameraScrollCurve}
         />
         <group ref={singleSheetRef}>
-          <SingleSheet />
+          <SingleSheet scrollProgress={scrollProgress} />
         </group>
       </Suspense>
     </>

@@ -9,6 +9,7 @@ export default function Model({ scrollProgress, ...props }) {
   const { nodes, materials } = useGLTF("/models/Moving_Extras.glb");
 
   const material = useKTX2Texture("/textures/Moving_extras.ktx2");
+  const dirtMaterial = useKTX2Texture("/textures/dirt.ktx2");
   const camelGroupRef = useRef();
   const camelFrontRightRef = useRef();
   const camelBackRightRef = useRef();
@@ -428,6 +429,12 @@ export default function Model({ scrollProgress, ...props }) {
           geometry={nodes.Plane107.geometry}
           material={material}
           position={[-20.537, 0.615, -1.385]}
+          rotation={[-Math.PI / 2, 0, -Math.PI]}
+        />
+        <mesh
+          geometry={nodes.dirt_particle.geometry}
+          material={dirtMaterial}
+          position={[-21.136, 0.614, -1.38]}
           rotation={[-Math.PI / 2, 0, -Math.PI]}
         />
       </group>

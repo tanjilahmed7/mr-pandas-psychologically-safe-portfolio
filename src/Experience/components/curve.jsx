@@ -6,26 +6,39 @@ const heightYValueAdjustment = 2;
 const LAST_X = 36.005978;
 const FIRST_X = -20.202141;
 export const SHIFT_X_AMOUNT = LAST_X - FIRST_X + 6.62;
+const test = 0;
 
 export const initialCameraPoints = [
   // Scene 1
-  new THREE.Vector3(-20.202141, -0.183518 + heightYValueAdjustment, 5),
-  new THREE.Vector3(-15.8032, 0.336296 + heightYValueAdjustment, 8),
-  new THREE.Vector3(-11.971144, 1.203873 + heightYValueAdjustment, 9),
-  new THREE.Vector3(-4.681061, 2.775572 + heightYValueAdjustment, 9),
+  new THREE.Vector3(-20.202141, -0.183518 + heightYValueAdjustment, 5 + test),
+  new THREE.Vector3(-15.8032, 0.336296 + heightYValueAdjustment, 8 + test),
+  new THREE.Vector3(-11.971144, 1.203873 + heightYValueAdjustment, 9 + test),
+  new THREE.Vector3(-4.681061, 2.775572 + heightYValueAdjustment, 9 + test),
 
   // Right Before ship
-  new THREE.Vector3(2.74859, 2.177679 + heightYValueAdjustment, 7.5),
+  new THREE.Vector3(2.74859, 2.177679 + heightYValueAdjustment, 7.5 + test),
 
   // Right before camel
-  new THREE.Vector3(8.42627, 2.705159 + heightYValueAdjustment, 8),
+  new THREE.Vector3(8.42627, 2.705159 + heightYValueAdjustment, 8 + test),
 
   //Camel start
-  new THREE.Vector3(14.909897, 1.517222 + heightYValueAdjustment, 7.3),
-  new THREE.Vector3(21.697693, 3.17222 + heightYValueAdjustment, 7.3),
-  new THREE.Vector3(26.066216, 4.106054 + heightYValueAdjustment, depthZValue),
-  new THREE.Vector3(31.030914, 4.106054 + heightYValueAdjustment, depthZValue),
-  new THREE.Vector3(36.005978, 3.91222 + heightYValueAdjustment, depthZValue),
+  new THREE.Vector3(14.909897, 1.517222 + heightYValueAdjustment, 7.3 + test),
+  new THREE.Vector3(21.697693, 3.17222 + heightYValueAdjustment, 7.3 + test),
+  new THREE.Vector3(
+    26.066216,
+    4.106054 + heightYValueAdjustment,
+    depthZValue + test
+  ),
+  new THREE.Vector3(
+    31.030914,
+    4.106054 + heightYValueAdjustment,
+    depthZValue + test
+  ),
+  new THREE.Vector3(
+    36.005978,
+    3.91222 + heightYValueAdjustment,
+    depthZValue + test
+  ),
 ];
 
 export const cameraCurve = new THREE.CatmullRomCurve3(initialCameraPoints);
