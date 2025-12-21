@@ -61,7 +61,6 @@ export default function Model({ scrollProgress, cameraScrollCurve, ...props }) {
   useFrame((state, delta) => {
     if (pandaRef.current && scrollProgress && cameraScrollCurve) {
       let currentProgress = scrollProgress.current;
-      when;
       if (!cameraScrollCurve.transitionCurveActive.current) {
         const newTexture = getCurrentTexture(currentProgress);
         if (newTexture !== currentTextureRef.current) {
