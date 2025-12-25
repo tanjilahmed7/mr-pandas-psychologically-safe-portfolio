@@ -14,3 +14,12 @@ This repo contains code of Mr. Panda's Portfolio for a Codrops!! It's a concept 
 - [Tracing Kpop Demon Hunters Image](https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1000w,f_auto,q_auto:best/rockcms/2025-07/250709-Kpop-Demon-Hunters-vl-256p-ea5850.jpg)
 - [Egyption Artifact Reference Image One](https://www.teacherspayteachers.com/Product/Egyptian-Artifacts-Clipart-Set-1-4283355)
 - [Egyption Artifact Reference Image Two](https://media.istockphoto.com/id/1188022995/vector/egyptian-artifacts-vector-illustration-a-set-of-sacred-symbols-and-decorations-of-ancient.jpg?s=612x612&w=0&k=20&c=K0eAV0wofNJhBxAXtAZOQHHHUiiUMGUcucgx5tvIzyc=)
+
+# Areas of improvement / things to do
+
+- Generate hitboxes for hovered items that way it won't leave the area and flicker back constantly.
+- Add some cool burning paper shader effects.
+- Use texture atlases/spritesheets for animations.
+- More easter eggs.
+- Try making one that go forwards and diagonal or rotates camera upside down.
+- Try making different scenes and cute paper animations like a campfire.
