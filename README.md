@@ -23,3 +23,5 @@ This repo contains code of Mr. Panda's Portfolio for a Codrops!! It's a concept 
 - More easter eggs.
 - Try making one that go forwards and diagonal or rotates camera upside down.
 - Try making different scenes and cute paper animations like a campfire.
+- Better loading screen.
+- Text box so the panda says some stuff.
