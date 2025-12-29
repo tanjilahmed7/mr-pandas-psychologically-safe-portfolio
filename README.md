@@ -15,6 +15,10 @@ This repo contains code of Mr. Panda's Portfolio for a Codrops!! It's a concept 
 - [Egyption Artifact Reference Image One](https://www.teacherspayteachers.com/Product/Egyptian-Artifacts-Clipart-Set-1-4283355)
 - [Egyption Artifact Reference Image Two](https://media.istockphoto.com/id/1188022995/vector/egyptian-artifacts-vector-illustration-a-set-of-sacred-symbols-and-decorations-of-ancient.jpg?s=612x612&w=0&k=20&c=K0eAV0wofNJhBxAXtAZOQHHHUiiUMGUcucgx5tvIzyc=)
 
+# Extra info
+
+- Won [FWA of the day](https://thefwa.com/cases/mr-pandas-psychologically-safe-portfolio).
+
 # Areas of improvement / things to do
 
 - Generate hitboxes for hovered items that way it won't leave the area and flicker back constantly.
