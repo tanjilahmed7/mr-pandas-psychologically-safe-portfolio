@@ -21,6 +21,7 @@ This repo contains code of Mr. Panda's Portfolio for a Codrops article!! It's a 
 
 # Areas of improvement / things to do
 
+- Repetitive code could be cleaned up lol
 - Generate hitboxes for hovered items that way it won't leave the area and flicker back constantly.
 - Add some cool burning paper shader effects.
 - Add a night mode.
